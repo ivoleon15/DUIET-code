@@ -1,6 +1,50 @@
 # DUIET-code
 The code used in Arduino and Processing for the Assignments:
 
+Assignement 4:
+Aruidno:
+#include <CapacitiveSensor.h>
+
+CapacitiveSensor cs_4_2 = CapacitiveSensor(4, 2); // 10 megohm resistor between pins 4 & 2, pin 2 is sensor pin, add wire, foil
+#define PIN 6
+
+void setup() {
+
+  cs_4_2.set_CS_AutocaL_Millis(0xFFFFFFFF); // turn off autocalibrate on channel 1 - just as an example
+  Serial.begin(9600);
+    pinMode(PIN,OUTPUT);
+  pinMode(13,OUTPUT);
+
+}
+
+void loop() {
+
+  long start = millis();
+
+  long total = cs_4_2.capacitiveSensor(30);
+
+  // Serial.print(millis() - start); // check on performance in milliseconds
+
+  //  Serial.print("\t"); // tab character for debug window spacing
+
+  // Serial.println(total); // print sensor output 1
+  if (total >= 500) {
+    Serial.println("Touched");
+    delay(10000);
+    digitalWrite(PIN, HIGH);
+    digitalWrite(13, HIGH);
+    delay(10000);
+    digitalWrite(PIN, LOW);
+    digitalWrite(13, LOW);
+  }
+
+
+  delay(10); // arbitrary delay to limit data to serial port
+
+}
+
+
+
 Assignement 3:
 Aruidno:
 
