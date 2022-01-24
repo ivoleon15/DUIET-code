@@ -3,6 +3,7 @@ The code used in Arduino and Processing for the Assignments:
 
 Assignement 4:
 Aruidno:
+
 #include <CapacitiveSensor.h>
 
 CapacitiveSensor cs_4_2 = CapacitiveSensor(4, 2); // 10 megohm resistor between pins 4 & 2, pin 2 is sensor pin, add wire, foil
